@@ -4,7 +4,7 @@ def readAndPadMatrix(filepath):
         input_matrix = []
         for line in file:
             row = line.strip().split(", ")
-            row = [int(cell) if cell != "_" else None for cell in row]
+            row = [int(cell) if cell != "_" else '_' for cell in row]
             input_matrix.append(row)
     padded_input_matrix = padMatrix(input_matrix)
     return padded_input_matrix
