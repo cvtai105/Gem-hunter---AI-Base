@@ -159,9 +159,8 @@ def backtracking(cnf):
 
 
 def DPLL(formula):
-    print("new call")
     assignment = []
-
+    
     # // unit propagation:
     # while there is a unit clause {l} in Φ do
     #     Φ ← unit-propagate(l, Φ);
@@ -172,8 +171,7 @@ def DPLL(formula):
         for unit in unit_clauses:
             assignment.append(unit)
             formula = dpllhelper.unit_propagate(unit, formula)
-        
-    
+
     # // pure literal elimination:
     # while there is a literal l that occurs pure in formula do
     #     Φ ← pure-literal-assign(l, formuala);
@@ -183,7 +181,6 @@ def DPLL(formula):
             assignment.append(literal)
             formula = dpllhelper.pure_literal_assign(literal, formula)
 
-    
     # // stopping conditions:
     # if Φ is empty then
     #     return true;
@@ -198,19 +195,14 @@ def DPLL(formula):
     # l ← choose-literal(Φ);
     # return DPLL(Φ ∧ {l}) or DPLL(Φ ∧ {¬l});
     literal = dpllhelper.choose_literal(formula)
-    
-    formula1 = formula + [[literal]]
-    formula2 = formula + [[-literal]]
-    print(formula1)
-    print(formula2)
-    dpll1 = DPLL(formula1)
-    print(formula2)
 
-    dpll2 = DPLL(formula2)
     
+    dpll1 = DPLL([row[:] for row in formula] + [[literal]])
     if dpll1 != []:
         return dpll1 + assignment
-    elif dpll2 != []:
+
+    dpll2 = DPLL([row[:] for row in formula] + [[-literal]])
+    if dpll2 != []:
         return dpll2 + assignment
     
     return []
