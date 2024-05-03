@@ -1,3 +1,11 @@
-formula = [[39, 41, 52], [-52, -63], [-41, -63], [-41, -50, -52], [-50, -63], [-41, -52], [41, 50, 52], [-50, -52], [-41, -50], [-41, -52], [39, 50, 52], [-39, -63], [39, 41, 50, 52], [-52, -53], [-39, -52], [-39, -50, -52], [-41, -62], [-52, -62], [-62, -63], [-39, -50], [-39, -41], [-41, -53], [39, 41, 50, 52], [-41, -52, -53], [39, 41, 50, 52, 62, 63], [-39, -41, -52], [39, 41, 50, 52], [39, 41, 50], [-39, -62], [-39, -41, -50], [-50, -62], [41, 52, 53]]
+def get_assignment_space(affirmative_literals, first, last):
+    if first > last:
+        return [affirmative_literals]
+    
+    assignment1 = affirmative_literals[:]
+    assignment2 = affirmative_literals[:]
+    assignment2[first] *= -1
+    
+    return get_assignment_space(assignment1, first + 1, last) + get_assignment_space(assignment2, first + 1, last)
 
-print(formula + [[-39]])
+print(get_assignment_space([1, 2, 3,6], 0, 3))
