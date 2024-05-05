@@ -1,0 +1,4 @@
+Matrix size, CNF count, Literals count, Backtracking runtime, Bruteforce runtime, Pysat runtime, DPLL runtime,
+[5, 5], 125, 15, 27701500, 45191000, 995000, 0
+[9, 9], 81, 26, 127734300, 25182800, 946100, 1000100
+[11, 11], 92, 42, 1324388900, 29006200, 1002100, 1002800

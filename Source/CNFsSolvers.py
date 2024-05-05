@@ -45,18 +45,25 @@ def GenerateCNFsFromMatrix(matrix):
     return clauses
 
 def GetRevealedMatrix(matrix, cnf, algorithm = "pysat"):
+    print('Matrix size:', len(matrix) -2, 'x', len(matrix[0]) -2)
+    print('CNF count:', len(cnf))
+    print('Variable count:', len({abs(literal) for clause in cnf for literal in clause}))
+    print('Solving with:', algorithm)
     if(algorithm == "bruteforce"):
         solution = bruteforce.solve(cnf)
-    # elif (algorithm == "backtracking"):
-    #     solution = backtracking(cnf)
+    elif (algorithm == "backtracking"):
+        solution = backtracking.solve(cnf)
     elif (algorithm == "pysat"):
         solution = pysatSolve(cnf)
     elif(algorithm == "dpll"):
         solution = dpll.solve(cnf)
     else:
         return None
+    print('Done')
+    print()
   
     if solution == None:
+        print('none')
         return matrix
     
     

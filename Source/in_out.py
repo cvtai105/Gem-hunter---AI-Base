@@ -23,5 +23,3 @@ def unpadAndWriteMatrix(filepath, matrix):
             row = [str(cell) for cell in row[1:-1]]
             file.write(", ".join(row) + "\n")
 
-def logComparision():
-    return

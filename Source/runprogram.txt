@@ -1,0 +1,6 @@
+giải cnfs bằng thư viện:                python main.py -pysat
+giải cnfs bằng thuật toán dpll:         python main.py -dpll
+giải cnfs bằng bruteforce:              python main.py -bruteforce           (chỉ chạy 3 testcases đầu vì runtime quá lớn)
+giải cnfs bằng back tracking:           python main.py -backtracking         (chỉ chạy 3 testcases đầu vì runtime quá lớn)
+
+tính toán runtime các thuật toán:       python main.py -compare              (chỉ chạy 3 testcases đầu và không log output)
